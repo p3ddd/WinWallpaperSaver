@@ -12,23 +12,25 @@
 
 - 。。。
 
-> A tool to save Win10/Win11 wallpapers
->
-> Usage:
->   WinWallpaperSaver [flags]
->   WinWallpaperSaver [command]
->
-> Available Commands:
->   completion    Generate the autocompletion script for the specified shell
->   copy          copy
->   copyAndRename copy and rename
->   help          Help about any command
->   list          list files in dstDir
->   rename        rename
->   version       print version
->
-> Flags:
->   -h, --help   help for WinWallpaperSaver
->
-> Use "WinWallpaperSaver [command] --help" for more information about a command.
+```
+A tool to save Win10/Win11 wallpapers
+
+Usage:
+WinWallpaperSaver [flags]
+WinWallpaperSaver [command]
+
+Available Commands:
+completion    Generate the autocompletion script for the specified shell
+copy          copy
+copyAndRename copy and rename
+help          Help about any command
+list          list files in dstDir
+rename        rename
+version       print version
+
+Flags:
+-h, --help   help for WinWallpaperSaver
+
+Use "WinWallpaperSaver [command] --help" for more information about a command.
+```
 
