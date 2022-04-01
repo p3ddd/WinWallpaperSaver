@@ -1,8 +1,8 @@
-module Win10WallpaperSaver
+module WinWallpaperSaver
 
-go 1.17
+go 1.18
 
-require github.com/spf13/cobra v1.3.0
+require github.com/spf13/cobra v1.4.0
 
 require (
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect

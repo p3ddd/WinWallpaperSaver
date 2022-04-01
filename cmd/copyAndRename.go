@@ -4,7 +4,7 @@ import "github.com/spf13/cobra"
 
 var copyAndRenameCmd = &cobra.Command{
 	Use:     "copyAndRename",
-	Aliases: []string{""},
+	Aliases: []string{"cr"},
 	Short:   "copy and rename",
 	Run:     copyAndRename,
 }

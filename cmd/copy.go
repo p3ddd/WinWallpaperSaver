@@ -1,23 +1,22 @@
 package cmd
 
 import (
-	"Win10WallpaperSaver/utils"
+	"WinWallpaperSaver/utils"
 	"fmt"
-	"path"
 
 	"github.com/spf13/cobra"
 )
 
 var copyCmd = &cobra.Command{
 	Use:     "copy",
-	Aliases: []string{""},
-	Short:   "copy", // 初始化默认模板
+	Aliases: []string{"c"},
+	Short:   "copy",
 	Run:     copy,
 }
 
 func copy(cmd *cobra.Command, args []string) {
 	from := utils.GetAssetsPath()
-	to := utils.ClearPath(path.Join(utils.GetExecDir(), "wallpapers\\"))
+	to := utils.GetDstDir()
 
 	fmt.Println("AssetsDir: ", from)
 	fmt.Println("ExecDir: ", to)

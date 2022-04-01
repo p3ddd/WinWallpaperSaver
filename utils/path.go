@@ -41,25 +41,30 @@ func RenameToPNG(dirname string) {
 		log.Fatal(err)
 	}
 	for _, f := range fileInfos {
-		itemName := dirname + "\\" + f.Name() //记录当前文件(夹)名
+		itemName := path.Join(dirname, f.Name()) //记录当前文件(夹)名
 		if f.IsDir() {                        //判断是否是文件夹 如果是文件夹则继续递归调用
 			RenameToPNG(itemName)
 		} else {
-			os.Rename(itemName, itemName+".png")
-			fmt.Println(itemName) //打印文件地址
+			if path.Ext(itemName) == "" { // 判断是否有扩展名
+				if os.Rename(itemName, itemName+".png") == nil {
+					fmt.Println("[OK]", itemName) //打印文件地址
+				} else {
+					fmt.Printf("[ERR] %s %s\n", itemName, err.Error())
+				}
+			}
 		}
 	}
 }
 
 // 将 / 替换成 \
 func ClearPath(path string) string {
-	return strings.Replace(path, "/", "\\", -1)
+	return strings.Replace(path, "\\", "/", -1)
 }
 
 // 获取壁纸所在文件夹
 func GetAssetsPath() string {
 	HomeDir, _ := os.UserHomeDir()
-	suffix := "AppData\\Local\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets"
+	suffix := "AppData/Local/Packages/Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy/LocalState/Assets"
 
 	AssetsDir := path.Join(HomeDir, suffix)
 	AssetsDir = ClearPath(AssetsDir)
@@ -77,6 +82,11 @@ func GetExecDir() string {
 	ExecDir := ClearPath(dir)
 
 	return ExecDir
+}
+
+// 获取目标文件夹
+func GetDstDir() string {
+	return ClearPath(path.Join(GetExecDir(), "wallpapers"))
 }
 
 func Copy(from, to string) error {
@@ -118,8 +128,7 @@ func Copy(from, to string) error {
 		}
 		defer out.Close()
 
-		written, err := io.Copy(out, bufReader)
-		fmt.Println("written:", written)
+		_, err = io.Copy(out, bufReader)
 		if err != nil {
 			return err
 		}

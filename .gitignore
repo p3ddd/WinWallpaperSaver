@@ -1,4 +1,4 @@
 .vscode/**
 wallpapers/**
 test.go
-main.exe
+*.exe

@@ -5,10 +5,10 @@ import (
 )
 
 var (
-	// cfgFile string
 	rootCmd = &cobra.Command{
-		Use:   "Win10WallpaperSaver",
-		Short: "A tool to save Win10 wallpapers",
+		Use:   "WinWallpaperSaver",
+		Short: "A tool to save Win10/Win11 wallpapers",
+		Run: copyAndRename,
 	}
 )
 
@@ -17,6 +17,7 @@ func init() {
 	rootCmd.AddCommand(renameCmd)
 	rootCmd.AddCommand(copyAndRenameCmd)
 	rootCmd.AddCommand(versionCmd)
+	rootCmd.AddCommand(listCmd)
 }
 
 func Execute() error {

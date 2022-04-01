@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Win10WallpaperSaver/cmd"
+	"WinWallpaperSaver/cmd"
 
 	"github.com/spf13/cobra"
 )
