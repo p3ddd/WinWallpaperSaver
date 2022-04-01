@@ -1,4 +1,7 @@
 .vscode/**
 wallpapers/**
+build/
 test.go
 *.exe
+*.zip
+*.7z
