@@ -1,4 +1,4 @@
-## WinWallpaperSaver1
+## WinWallpaperSaver
 
 在 Windows 下导出个性化 > 锁屏界面 > Windows 聚焦图片
 
